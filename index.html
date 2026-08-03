@@ -8,8 +8,7 @@
 <meta name="robots" content="noindex, nofollow">
 <style>
 /* =========================================================
-   TOKENS — paleta inspirada en la Selva Negra (bosque, madera,
-   señales de senderismo mostaza) y el entramado de Alsacia.
+   TOKENS
    ========================================================= */
 :root{
   --forest:      #16211a;
@@ -69,19 +68,19 @@ p{ margin:0 0 .8em; }
 }
 .topnav .wrap{
   display:flex; align-items:center; justify-content:space-between;
-  padding:10px 18px;
+  padding:10px 18px; gap:8px; overflow-x:auto;
 }
 .topnav .brand{
   font-family:var(--font-display); color:var(--parchment);
-  font-size:1.05rem; font-weight:700; letter-spacing:.2px;
+  font-size:1.02rem; font-weight:700; letter-spacing:.2px;
   white-space:nowrap;
 }
 .topnav .brand em{ color:var(--waymark); font-style:normal; }
-.tabs{ display:flex; gap:4px; }
+.tabs{ display:flex; gap:2px; }
 .tabs a{
   color:var(--parchment-2); text-decoration:none;
-  font-size:.8rem; font-weight:600; letter-spacing:.02em;
-  padding:8px 9px; border-radius:7px;
+  font-size:.76rem; font-weight:600; letter-spacing:.02em;
+  padding:8px 8px; border-radius:7px;
   font-family:var(--font-body);
   white-space:nowrap;
 }
@@ -91,7 +90,9 @@ p{ margin:0 0 .8em; }
    HERO
    ========================================================= */
 .hero{
-  background:linear-gradient(180deg,var(--forest) 0%, var(--forest-2) 100%);
+  background:
+    repeating-linear-gradient(135deg, rgba(242,232,208,.035) 0px, rgba(242,232,208,.035) 1px, transparent 1px, transparent 26px),
+    linear-gradient(180deg,var(--forest) 0%, var(--forest-2) 100%);
   color:var(--parchment);
   position:relative;
   padding:38px 0 0;
@@ -103,7 +104,7 @@ p{ margin:0 0 .8em; }
   font-size:.72rem; color:var(--waymark); margin-bottom:10px;
 }
 .hero h1{
-  font-size:2.5rem; color:var(--parchment);
+  font-size:2.6rem; color:var(--parchment); letter-spacing:-.01em;
   text-shadow:0 2px 0 rgba(0,0,0,.25);
 }
 .hero h1 span{ color:var(--waymark); }
@@ -139,7 +140,6 @@ p{ margin:0 0 .8em; }
   clip-path:polygon(0.0% 100.0%, 1.58% 40.0%, 4.83% 17.14%, 7.71% 43.57%, 10.79% 42.14%, 14.29% 20.0%, 17.12% 23.57%, 19.75% 45.0%, 22.42% 27.14%, 25.37% 43.57%, 28.54% 42.86%, 31.87% 27.14%, 34.96% 20.71%, 37.46% 36.43%, 40.67% 44.29%, 44.5% 20.0%, 48.08% 44.29%, 51.21% 45.0%, 54.54% 40.71%, 57.96% 27.86%, 60.83% 22.14%, 63.46% 20.71%, 66.29% 21.43%, 69.21% 42.14%, 72.5% 20.71%, 75.83% 30.0%, 78.54% 21.43%, 81.08% 20.71%, 83.54% 18.57%, 86.17% 24.29%, 89.46% 27.14%, 92.92% 25.71%, 96.42% 25.71%, 99.96% 32.86%, 100.0% 100.0%);
 }
 
-/* QR box */
 .qr-card{
   background:var(--parchment-2); border:1px dashed var(--timber);
   border-radius:var(--radius); padding:16px; margin:26px 0 8px;
@@ -155,8 +155,11 @@ p{ margin:0 0 .8em; }
   display:inline-block; background:var(--waymark); color:var(--ink); border:none;
   font-family:var(--font-body); font-weight:700; font-size:.8rem;
   padding:8px 14px; border-radius:20px; cursor:pointer; margin-top:8px;
+  text-decoration:none;
 }
 .btn:hover{ background:var(--waymark-2); }
+.btn.ghost{ background:transparent; border:1.5px solid var(--timber); color:var(--timber); }
+.btn.ghost:hover{ background:rgba(107,66,38,.08); }
 
 /* =========================================================
    SECTIONS GENERAL
@@ -167,22 +170,67 @@ section{ padding:44px 0; }
 .section-head h2{ font-size:1.7rem; }
 .section-head p{ color:var(--slate); max-width:520px; }
 
+#imprescindibles{ background:var(--parchment); }
 #itinerario{ background:var(--parchment); }
 #mapa{ background:var(--parchment-2); }
 #practico{ background:var(--parchment); }
 
 /* =========================================================
-   DAY CARDS ("señales de sendero")
+   LEGEND CHIPS (tipos de día)
    ========================================================= */
+.legend{ display:flex; flex-wrap:wrap; gap:8px; margin:14px 0 4px; }
+.legend span{
+  display:inline-flex; align-items:center; gap:6px;
+  font-size:.74rem; font-family:var(--font-mono); color:var(--ink);
+  background:#fff; border:1px solid rgba(107,66,38,.25); border-radius:14px;
+  padding:4px 10px;
+}
+.legend .dotL{ width:9px; height:9px; border-radius:50%; display:inline-block; }
+.legend .dotL.suave{ background:var(--green-ok); }
+.legend .dotL.medio{ background:var(--amber); }
+.legend .dotL.fuerte{ background:var(--vineyard); }
+.legend .dotL.evento{ background:var(--waymark-2); }
+
+/* =========================================================
+   IMPRESCINDIBLES CARDS
+   ========================================================= */
+.must-grid{ display:grid; gap:14px; }
+@media(min-width:600px){ .must-grid{ grid-template-columns:1fr 1fr; } }
+.must-card{
+  background:#fbf6e8; border:1px solid rgba(107,66,38,.25); border-radius:var(--radius);
+  padding:18px; position:relative; overflow:hidden;
+}
+.must-card .flagbig{
+  display:inline-flex; align-items:center; justify-content:center;
+  width:38px; height:38px; border-radius:50%;
+  background:var(--forest); font-size:1.1rem; margin-bottom:10px;
+}
+.must-card h3{ font-size:1.05rem; margin-bottom:6px; }
+.must-card p{ font-size:.88rem; color:var(--ink); }
+.must-card .links{ display:flex; gap:8px; flex-wrap:wrap; margin-top:10px; }
+
+/* =========================================================
+   DAY CARDS ("señales de sendero") + TRAIL LINE
+   ========================================================= */
+.trail{ position:relative; }
+.trail::before{
+  content:"";
+  position:absolute; left:29px; top:6px; bottom:6px; width:2px;
+  background:repeating-linear-gradient(to bottom, var(--timber-lite) 0 6px, transparent 6px 12px);
+  z-index:0; opacity:.55;
+}
 .day{
   background:#fbf6e8;
   border:1px solid rgba(107,66,38,.25);
   border-left:6px solid var(--gray);
   border-radius:8px;
   margin-bottom:14px;
-  position:relative;
+  position:relative; z-index:1;
   box-shadow:0 1px 0 rgba(0,0,0,.03);
+  opacity:1; transform:none;
+  transition:opacity .5s ease, transform .5s ease;
 }
+.day.pre-reveal{ opacity:0; transform:translateY(14px); }
 .day[data-type="suave"]{ border-left-color:var(--green-ok); }
 .day[data-type="medio"]{ border-left-color:var(--amber); }
 .day[data-type="fuerte"]{ border-left-color:var(--vineyard); }
@@ -235,11 +283,28 @@ section{ padding:44px 0; }
   padding:8px 10px; border-radius:6px; font-size:.85rem; margin-top:8px;
 }
 .note.rain{ border-left-color:var(--slate); background:rgba(70,96,95,.09); }
+.note.alt{ border-left-color:var(--waymark-2); background:rgba(217,165,33,.1); }
 .todo{
   display:inline-block; background:#fff; border:1.5px dashed var(--vineyard);
   color:var(--vineyard); font-size:.72rem; font-weight:700; padding:1px 7px;
   border-radius:10px; margin-left:4px; font-family:var(--font-mono);
 }
+
+/* Versión anterior (referencia histórica) */
+.oldplan{
+  background:transparent; border:1.5px dashed rgba(107,66,38,.4); border-radius:8px;
+  margin-top:22px; padding:0;
+}
+.oldplan summary{
+  list-style:none; cursor:pointer; padding:12px 14px; font-family:var(--font-body);
+  font-weight:700; font-size:.9rem; color:var(--timber); display:flex; align-items:center; gap:8px;
+}
+.oldplan summary::-webkit-details-marker{ display:none; }
+.oldplan .day-body{ padding:0 16px 16px 16px; }
+.oldplan .day-body p{ font-size:.82rem; color:var(--slate); }
+.oldplan ul{ padding-left:1.1em; }
+.oldplan li{ font-size:.85rem; margin-bottom:5px; }
+.oldplan li b{ color:var(--ink); }
 
 /* =========================================================
    MAPA
@@ -284,6 +349,17 @@ section{ padding:44px 0; }
 .dot.verificar{ background:#d9c11f; }
 .dot.hecho{ background:var(--green-ok); }
 
+.ticket-list{ list-style:none; padding:0; margin:0; display:grid; gap:8px; }
+.ticket-list a{
+  display:flex; justify-content:space-between; align-items:center; gap:10px; flex-wrap:wrap;
+  background:#fff; border:1px solid rgba(107,66,38,.25); border-radius:8px;
+  padding:10px 12px; font-size:.87rem; text-decoration:none; color:var(--ink);
+}
+.ticket-list a .tk-name{ flex-wrap:wrap; }
+.ticket-list a:hover{ border-color:var(--waymark-2); }
+.ticket-list a .tk-name{ display:flex; align-items:center; gap:8px; }
+.ticket-list a .tk-go{ font-family:var(--font-mono); font-size:.72rem; color:var(--vineyard); white-space:nowrap; }
+
 footer{
   background:var(--forest); color:var(--parchment-2); padding:30px 0 40px; font-size:.82rem;
 }
@@ -295,9 +371,10 @@ footer .wrap{ display:flex; flex-direction:column; gap:6px; }
 
 <nav class="topnav">
   <div class="wrap">
-    <div class="brand">Alsacia <em>&amp;</em> Selva Negra</div>
+    <div class="brand">Alsacia <em>&amp;</em> S.Negra</div>
     <div class="tabs">
       <a href="#inicio">Inicio</a>
+      <a href="#imprescindibles">Antes de salir</a>
       <a href="#itinerario">Itinerario</a>
       <a href="#mapa">Mapa</a>
       <a href="#practico">Práctico</a>
@@ -341,6 +418,40 @@ footer .wrap{ display:flex; flex-direction:column; gap:6px; }
 </header>
 
 <!-- ============================================================ -->
+<!-- IMPRESCINDIBLES -->
+<!-- ============================================================ -->
+<section id="imprescindibles">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Antes de salir</div>
+      <h2>Imprescindibles</h2>
+      <p>Dos pegatinas obligatorias, una por país. Sin ellas, multa — así que van las primeras de la lista.</p>
+    </div>
+
+    <div class="must-grid">
+      <div class="must-card">
+        <div class="flagbig">🇫🇷</div>
+        <h3>Crit'Air (Francia)</h3>
+        <p>Obligatoria para entrar en Annecy (Día 10) y en general en zonas restringidas francesas. Se pide online por coche (×3): el certificado provisional en PDF vale al instante en un control, aunque la pegatina física tarde ~30 días en llegar por correo.</p>
+        <div class="links">
+          <a class="btn" href="https://www.certificat-air.gouv.fr" target="_blank" rel="noopener">Pedir en certificat-air.gouv.fr</a>
+        </div>
+      </div>
+
+      <div class="must-card">
+        <div class="flagbig">🇩🇪</div>
+        <h3>Umweltplakette (Alemania)</h3>
+        <p>Obligatoria desde Friburgo en adelante (Días 8-9). La copia digital <strong>no vale</strong> — hay que comprar la pegatina física en persona, en Alemania, en un TÜV, DEKRA o ATU (~5-10€). Cierran mediodía, sábado tarde y domingo.</p>
+        <div class="links">
+          <a class="btn" href="https://www.adac.de/verkehr/tanken-kraftstoff-antrieb/fahrverbote-umweltzonen/umweltplaketten/" target="_blank" rel="noopener">Info oficial (ADAC)</a>
+          <a class="btn ghost" href="https://www.dekra.de/de/feinstaubplakette/" target="_blank" rel="noopener">DEKRA</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
 <!-- ITINERARIO -->
 <!-- ============================================================ -->
 <section id="itinerario">
@@ -348,8 +459,16 @@ footer .wrap{ display:flex; flex-direction:column; gap:6px; }
     <div class="section-head">
       <div class="eyebrow">Día a día</div>
       <h2>El itinerario</h2>
-      <p>Toca cada día para ver el plan completo, horarios y lo que hay que reservar. El color del borde indica el tipo de jornada: 🟢 suave · 🟡 media · 🔴 mucho coche · 🟨 evento fijo.</p>
+      <p>Toca cada día para ver el plan completo, horarios y lo que hay que reservar.</p>
+      <div class="legend">
+        <span><i class="dotL suave"></i> suave</span>
+        <span><i class="dotL medio"></i> media</span>
+        <span><i class="dotL fuerte"></i> mucho coche</span>
+        <span><i class="dotL evento"></i> evento fijo</span>
+      </div>
     </div>
+
+    <div class="trail">
 
     <!-- DÍA 1 -->
     <details class="day" data-type="viaje" data-date="2026-08-06">
@@ -428,35 +547,12 @@ footer .wrap{ display:flex; flex-direction:column; gap:6px; }
       </div>
     </details>
 
-    <!-- DÍA 4 -->
-    <details class="day" data-type="suave" data-date="2026-08-09">
+    <!-- DÍA 4 (antes Castillo, ahora Día Norte) -->
+    <details class="day" data-type="fuerte" data-date="2026-08-09">
       <summary>
         <span class="flag">04</span>
         <span class="summary-main">
           <span class="date">Dom 9 ago</span>
-          <h3>Castillo y animales</h3>
-          <span class="teaser">Haut-Kœnigsbourg · Kintzheim · pueblos</span>
-        </span>
-        <span class="km-chip">~1h</span>
-        <span class="chev">▸</span>
-      </summary>
-      <div class="day-body">
-        <h4>Plan</h4>
-        <ul>
-          <li>Château du Haut-Kœnigsbourg — abre a las 9:15, conviene llegar pronto en agosto. 🎟️ entradas online.</li>
-          <li>Montagne des Singes (200 monos de Berbería sueltos, se les da de comer en la mano) y/o Volerie des Aigles — a 1,5 km del castillo.</li>
-          <li>Tarde: Riquewihr, Ribeauvillé y Kaysersberg — cata de vino para los adultos.</li>
-        </ul>
-        <div class="note">Día redondo para familias: castillo + animales sin apenas conducir.</div>
-      </div>
-    </details>
-
-    <!-- DÍA 5 -->
-    <details class="day" data-type="fuerte" data-date="2026-08-10">
-      <summary>
-        <span class="flag">05</span>
-        <span class="summary-main">
-          <span class="date">Lun 10 ago</span>
           <h3>Día Norte</h3>
           <span class="teaser">Schwarzwaldhochstraße — el día de más coche</span>
         </span>
@@ -471,7 +567,30 @@ footer .wrap{ display:flex; flex-direction:column; gap:6px; }
           <li>🛷 Tobogán Mehliskopf, junto al Mummelsee — <em>coaster 2 de 3</em>.</li>
           <li>Sasbachwalden — pueblo vinícola con mucho encanto.</li>
         </ul>
-        <div class="note">🃏 <strong>Comodín:</strong> Estrasburgo (catedral, Petite France, Parlamento Europeo) queda disponible como plan alternativo para quien prefiera no hacer este día de carretera.</div>
+        <div class="note alt">🃏 <strong>Alternativas que barajamos:</strong> Estrasburgo (catedral, Petite France, Parlamento Europeo) en vez de todo el día de carretera; o <strong>Bad Wildbad</strong> — Baumwipfelpfad (pasarela + mirador + tobogán de 55 m) y el puente colgante Wildline (380 m, 60 m alto). Cualquiera de las dos sustituiría el plan de arriba si al final no apetece tanta conducción.</div>
+      </div>
+    </details>
+
+    <!-- DÍA 5 (antes Norte, ahora Castillo + animales) -->
+    <details class="day" data-type="suave" data-date="2026-08-10">
+      <summary>
+        <span class="flag">05</span>
+        <span class="summary-main">
+          <span class="date">Lun 10 ago</span>
+          <h3>Castillo y animales</h3>
+          <span class="teaser">Haut-Kœnigsbourg · Kintzheim · pueblos</span>
+        </span>
+        <span class="km-chip">~1h</span>
+        <span class="chev">▸</span>
+      </summary>
+      <div class="day-body">
+        <h4>Plan</h4>
+        <ul>
+          <li>Château du Haut-Kœnigsbourg — abre a las 9:15, conviene llegar pronto en agosto. 🎟️ entradas online.</li>
+          <li>Montagne des Singes (200 monos de Berbería sueltos, se les da de comer en la mano) y/o Volerie des Aigles — a 1,5 km del castillo.</li>
+          <li>Tarde: Riquewihr, Ribeauvillé y Kaysersberg — cata de vino para los adultos.</li>
+        </ul>
+        <div class="note">Día ligero a propósito: queda justo entre el Día Norte y Europa-Park, para recuperar fuerzas entre los dos días más intensos.</div>
       </div>
     </details>
 
@@ -562,6 +681,7 @@ footer .wrap{ display:flex; flex-direction:column; gap:6px; }
           <li>Sin más plan — vuelta con calma, última noche en Colmar.</li>
           <li>Cena de despedida en Colmar <span class="todo">✏️ decidir restaurante</span></li>
         </ul>
+        <div class="note alt">🃏 <strong>Alternativas que barajamos:</strong> Steinwasen Park (Oberried) — toboganes propios + puente de cuerda de 218 m + animales; o Feldberg — el pico más alto de la Selva Negra, con telecabina.</div>
       </div>
     </details>
 
@@ -609,6 +729,23 @@ footer .wrap{ display:flex; flex-direction:column; gap:6px; }
       </div>
     </details>
 
+    </div><!-- /.trail -->
+
+    <details class="oldplan">
+      <summary>🕰️ Versión anterior del itinerario (antes de reorganizar) — solo de referencia</summary>
+      <div class="day-body">
+        <p>Así estaba el viaje antes de meter los toboganes alpinos, los animales de Kintzheim, el día de agua y el Día Norte. Se queda aquí por si en algún momento se prefiere volver a algo de esto — nada de esto está activo ahora.</p>
+        <ul>
+          <li><b>Día 3 —</b> Pueblos alsacianos: Eguisheim → Kaysersberg → Riquewihr</li>
+          <li><b>Día 4 —</b> Castillo + Ribeauvillé (sin animales de Kintzheim)</li>
+          <li><b>Día 5 —</b> Estrasburgo (día completo)</li>
+          <li><b>Día 7 —</b> Friburgo + Titisee (sin Aqua Fun ni parada de estadio)</li>
+          <li><b>Día 8 —</b> Triberg + Gengenbach</li>
+          <li><b>Día 9 —</b> Día libre: cada familia elegía entre Rulantica, Baden-Baden, un estadio o Turckheim</li>
+        </ul>
+      </div>
+    </details>
+
   </div>
 </section>
 
@@ -631,8 +768,8 @@ footer .wrap{ display:flex; flex-direction:column; gap:6px; }
     <div class="leglist">
       <a class="leg" href="https://www.google.com/maps/dir/Cerdanyola+del+Valles,+Spain/Colmar,+France" target="_blank" rel="noopener">Cerdanyola → Colmar <span>Día 1</span></a>
       <a class="leg" href="https://www.google.com/maps/dir/Colmar,+France/Triberg+im+Schwarzwald,+Germany" target="_blank" rel="noopener">Colmar → Triberg <span>Día 3</span></a>
-      <a class="leg" href="https://www.google.com/maps/dir/Colmar,+France/Chateau+du+Haut-Koenigsbourg,+France" target="_blank" rel="noopener">Colmar → Haut-Kœnigsbourg <span>Día 4</span></a>
-      <a class="leg" href="https://www.google.com/maps/dir/Colmar,+France/Mummelsee,+Seebach,+Germany" target="_blank" rel="noopener">Colmar → Mummelsee <span>Día 5</span></a>
+      <a class="leg" href="https://www.google.com/maps/dir/Colmar,+France/Mummelsee,+Seebach,+Germany" target="_blank" rel="noopener">Colmar → Mummelsee <span>Día 4</span></a>
+      <a class="leg" href="https://www.google.com/maps/dir/Colmar,+France/Chateau+du+Haut-Koenigsbourg,+France" target="_blank" rel="noopener">Colmar → Haut-Kœnigsbourg <span>Día 5</span></a>
       <a class="leg" href="https://www.google.com/maps/dir/Colmar,+France/Europa-Park,+Rust,+Germany" target="_blank" rel="noopener">Colmar → Europa-Park <span>Día 6</span></a>
       <a class="leg" href="https://www.google.com/maps/dir/Colmar,+France/Titisee-Neustadt,+Germany" target="_blank" rel="noopener">Colmar → Titisee <span>Día 8</span></a>
       <a class="leg" href="https://www.google.com/maps/dir/Colmar,+France/Freiburg+im+Breisgau,+Germany" target="_blank" rel="noopener">Colmar → Friburgo <span>Día 8-9</span></a>
@@ -661,6 +798,7 @@ footer .wrap{ display:flex; flex-direction:column; gap:6px; }
           <li>Check-in: 6 ago desde las 16:00</li>
           <li>Check-out: 15 ago hasta las 10:00</li>
           <li>Reserva: HMEXDRNZ2M (Cotoon Gestion / Yaago)</li>
+          <li>✅ Check-in online (documentos + contrato) ya completado</li>
         </ul>
       </div>
 
@@ -694,24 +832,6 @@ footer .wrap{ display:flex; flex-direction:column; gap:6px; }
       </div>
 
       <div class="card">
-        <h3>🇫🇷 Pegatina Crit'Air</h3>
-        <ul>
-          <li>Pedir en la web oficial <strong>certificat-air.gouv.fr</strong> (~3,81€ por coche).</li>
-          <li>El certificado provisional en PDF es válido al instante; la física llega en ~30 días.</li>
-          <li>Necesaria para entrar en Annecy (Día 10).</li>
-        </ul>
-      </div>
-
-      <div class="card">
-        <h3>🇩🇪 Umweltplakette (Alemania)</h3>
-        <ul>
-          <li>La copia digital no vale — hace falta la pegatina física.</li>
-          <li>Comprarla en persona en TÜV, DEKRA o ATU (~5-10€), con el permiso de circulación.</li>
-          <li>No hace falta hasta Friburgo (Días 8-9) — cierran mediodía, sábado tarde y domingo.</li>
-        </ul>
-      </div>
-
-      <div class="card">
         <h3>☎️ Contactos</h3>
         <ul>
           <li>Emergencias (UE): <strong>112</strong></li>
@@ -731,6 +851,21 @@ footer .wrap{ display:flex; flex-direction:column; gap:6px; }
     </div>
 
     <div class="card" style="margin-top:14px;">
+      <h3>🎟️ Entradas — acceso directo</h3>
+      <ul class="ticket-list">
+        <li><a href="https://shop.triberg.de/" target="_blank" rel="noopener"><span class="tk-name">🎟️ Cascadas de Triberg <span style="color:var(--slate);font-size:.78rem">· Día 3</span></span><span class="tk-go">shop.triberg.de →</span></a></li>
+        <li><a href="https://www.vogtsbauernhof.de/" target="_blank" rel="noopener"><span class="tk-name">🎟️ Museo Vogtsbauernhof (Gutach) <span style="color:var(--slate);font-size:.78rem">· Día 3</span></span><span class="tk-go">vogtsbauernhof.de →</span></a></li>
+        <li><a href="https://mehliskopf.de/tickets-preise" target="_blank" rel="noopener"><span class="tk-name">🎟️ Tobogán Mehliskopf <span style="color:var(--slate);font-size:.78rem">· Día 4</span></span><span class="tk-go">mehliskopf.de →</span></a></li>
+        <li><a href="https://tickets.haut-koenigsbourg.fr/" target="_blank" rel="noopener"><span class="tk-name">🎟️ Château Haut-Kœnigsbourg <span style="color:var(--slate);font-size:.78rem">· Día 5</span></span><span class="tk-go">tickets.haut-koenigsbourg.fr →</span></a></li>
+        <li><a href="https://www.montagnedessinges.com/" target="_blank" rel="noopener"><span class="tk-name">🎟️ Montagne des Singes <span style="color:var(--slate);font-size:.78rem">· Día 5</span></span><span class="tk-go">montagnedessinges.com →</span></a></li>
+        <li><a href="https://www.voleriedesaigles.com/" target="_blank" rel="noopener"><span class="tk-name">🎟️ Volerie des Aigles <span style="color:var(--slate);font-size:.78rem">· Día 5</span></span><span class="tk-go">voleriedesaigles.com →</span></a></li>
+        <li><a href="https://www.europapark.de/en/theme-park/tickets-offers" target="_blank" rel="noopener"><span class="tk-name">🎟️ Europa-Park <span style="color:var(--slate);font-size:.78rem">· Día 6</span></span><span class="tk-go">europapark.de →</span></a></li>
+        <li><a href="https://www.gemeinde-schluchsee.de/freizeit/freibad-aqua-fun" target="_blank" rel="noopener"><span class="tk-name">🎟️ Aqua Fun Schluchsee <span style="color:var(--slate);font-size:.78rem">· Día 8 (sin reserva)</span></span><span class="tk-go">gemeinde-schluchsee.de →</span></a></li>
+        <li><a href="https://www.hasenhorn-rodelbahn.de/" target="_blank" rel="noopener"><span class="tk-name">🎟️ Hasenhorn Coaster <span style="color:var(--slate);font-size:.78rem">· Día 9</span></span><span class="tk-go">hasenhorn-rodelbahn.de →</span></a></li>
+      </ul>
+    </div>
+
+    <div class="card" style="margin-top:14px;">
       <h3>✅ Checklist de reservas</h3>
       <ul class="status-list">
         <li><span class="dot urgente"></span> Hotel en Annecy — noche 15 ago <span class="todo">urgente</span></li>
@@ -744,6 +879,7 @@ footer .wrap{ display:flex; flex-direction:column; gap:6px; }
         <li><span class="dot verificar"></span> Tobogán + museo Vogtsbauernhof (Gutach)</li>
         <li><span class="dot hecho"></span> Europa-Park — comprado</li>
         <li><span class="dot hecho"></span> Barcas Petite Venise — reservado</li>
+        <li><span class="dot hecho"></span> Check-in Yaago (Colmar) — completado</li>
       </ul>
     </div>
 
@@ -756,7 +892,6 @@ footer .wrap{ display:flex; flex-direction:column; gap:6px; }
     <div>¿Cambia algo (restaurante cerrado, nuevo horario)? Este archivo es un único <code>index.html</code> — busca el día por su fecha y edita el texto directamente.</div>
   </div>
 </footer>
-
 <script>
 /* Librería QR — kazuhikoarase/qrcode-generator, licencia MIT. Incrustada para que funcione sin conexión. */
 //---------------------------------------------------------------------
@@ -3068,7 +3203,7 @@ var qrcode = function() {
     if(!box) return;
     try{
       if(location.protocol.indexOf('file') === 0){
-        box.innerHTML = '<div style="font-size:.6rem;line-height:1.2;padding:4px;color:#333;font-family:sans-serif;">Sube esto a Vercel para ver aquí el QR del link real.</div>';
+        box.innerHTML = '<div style="font-size:.6rem;line-height:1.2;padding:4px;color:#333;font-family:sans-serif;">Sube esto a Vercel/GitHub Pages para ver aquí el QR del link real.</div>';
         if(urlLabel) urlLabel.textContent = '(vista previa local, todavía sin link público)';
         return;
       }
@@ -3116,9 +3251,10 @@ var qrcode = function() {
     var day = ('' + d.getDate()).padStart(2, '0');
     return y + '-' + m + '-' + day;
   }
+  var todayEl = null;
   try{
     var todayStr = localISODate(new Date());
-    var todayEl = document.querySelector('.day[data-date="' + todayStr + '"]');
+    todayEl = document.querySelector('.day[data-date="' + todayStr + '"]');
     if(todayEl){
       todayEl.open = true;
       var summary = todayEl.querySelector('summary');
@@ -3134,9 +3270,28 @@ var qrcode = function() {
     }
   }catch(e){}
 
+  /* ---------- Revelado suave de las tarjetas al hacer scroll ---------- */
+  try{
+    if('IntersectionObserver' in window){
+      var dayCards = document.querySelectorAll('.day');
+      dayCards.forEach(function(d){
+        if(d !== todayEl) d.classList.add('pre-reveal');
+      });
+      var revealObs = new IntersectionObserver(function(entries, obs){
+        entries.forEach(function(entry){
+          if(entry.isIntersecting){
+            entry.target.classList.remove('pre-reveal');
+            obs.unobserve(entry.target);
+          }
+        });
+      }, {rootMargin: '0px 0px -60px 0px', threshold: 0.1});
+      dayCards.forEach(function(d){ revealObs.observe(d); });
+    }
+  }catch(e){}
+
   /* ---------- Nav activa según la sección visible (mejora progresiva) ---------- */
   try{
-    var sections = ['inicio','itinerario','mapa','practico'].map(function(id){
+    var sections = ['inicio','imprescindibles','itinerario','mapa','practico'].map(function(id){
       return document.getElementById(id);
     }).filter(Boolean);
     var links = {};
