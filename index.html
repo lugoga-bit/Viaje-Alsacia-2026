@@ -289,6 +289,13 @@ section{ padding:44px 0; }
   color:var(--vineyard); font-size:.72rem; font-weight:700; padding:1px 7px;
   border-radius:10px; margin-left:4px; font-family:var(--font-mono);
 }
+.timetable{ list-style:none; margin:8px 0 14px; padding-left:14px; border-left:2px dashed rgba(107,66,38,.35); }
+.timetable li{ font-size:.85rem; margin-bottom:7px; color:var(--ink); }
+.timetable time{ font-family:var(--font-mono); font-weight:700; color:var(--timber); margin-right:8px; display:inline-block; min-width:44px; }
+.birthday{
+  display:inline-block; background:var(--vineyard); color:#fff; font-size:.72rem; font-weight:700;
+  padding:2px 9px; border-radius:12px; margin-left:6px; font-family:var(--font-mono);
+}
 
 /* Versión anterior (referencia histórica) */
 .oldplan{
@@ -460,6 +467,7 @@ footer .wrap{ display:flex; flex-direction:column; gap:6px; }
       <div class="eyebrow">Día a día</div>
       <h2>El itinerario</h2>
       <p>Toca cada día para ver el plan completo, horarios y lo que hay que reservar.</p>
+      <p style="font-size:.82rem;color:var(--slate);margin-top:-6px;">🕐 Los horarios de cada día son aproximados, suponiendo salida de Colmar a las 9:00 — con niños seguro que se mueven, es solo para hacerse una idea del ritmo.</p>
       <div class="legend">
         <span><i class="dotL suave"></i> suave</span>
         <span><i class="dotL medio"></i> media</span>
@@ -483,6 +491,13 @@ footer .wrap{ display:flex; flex-direction:column; gap:6px; }
         <span class="chev">▸</span>
       </summary>
       <div class="day-body">
+        <h4>Horario aproximado</h4>
+        <ul class="timetable">
+          <li><time>06:30</time> Salida de Cerdanyola del Vallès</li>
+          <li><time>~12:00</time> Parada larga — Narbona o Montpellier (comida)</li>
+          <li><time>~16:00</time> Llegada a Colmar, check-in</li>
+          <li><time>20:00</time> Cena de bienvenida</li>
+        </ul>
         <h4>Plan</h4>
         <ul>
           <li>Salida temprano desde Cerdanyola del Vallès (9-10h de viaje).</li>
@@ -507,6 +522,17 @@ footer .wrap{ display:flex; flex-direction:column; gap:6px; }
         <span class="chev">▸</span>
       </summary>
       <div class="day-body">
+        <h4>Horario aproximado</h4>
+        <ul class="timetable">
+          <li><time>09:00</time> Salida del alojamiento a pie</li>
+          <li><time>09:15</time> Collégiale St-Martin</li>
+          <li><time>10:00</time> Maison Pfister · Koïfhus · Quartier des Tanneurs</li>
+          <li><time>11:00</time> Marché Couvert (picar algo)</li>
+          <li><time>11:45</time> Petite Venise + barca Sweet Narcisse</li>
+          <li><time>13:00</time> Comida</li>
+          <li><time>15:30</time> Tarde libre / Eguisheim o Turckheim (opcional)</li>
+          <li><time>21:00</time> Colmar de noche iluminada</li>
+        </ul>
         <h4>Ruta a pie</h4>
         <ul>
           <li>Collégiale St-Martin → Maison Pfister (1537) → Koïfhus → Quartier des Tanneurs → Marché Couvert.</li>
@@ -536,6 +562,18 @@ footer .wrap{ display:flex; flex-direction:column; gap:6px; }
         <span class="chev">▸</span>
       </summary>
       <div class="day-body">
+        <h4>Horario aproximado</h4>
+        <ul class="timetable">
+          <li><time>09:00</time> Salida de Colmar</li>
+          <li><time>10:15</time> Llegada a Triberg</li>
+          <li><time>10:15</time> Cascadas de Triberg + reloj de cuco</li>
+          <li><time>12:15</time> Traslado a Gutach (cerca) + comida</li>
+          <li><time>13:30</time> Museo Vogtsbauernhof</li>
+          <li><time>15:00</time> Tobogán alpino de Gutach</li>
+          <li><time>16:00</time> Traslado a Gengenbach</li>
+          <li><time>16:45</time> Gengenbach</li>
+          <li><time>18:15</time> Vuelta a Colmar</li>
+        </ul>
         <h4>Plan</h4>
         <ul>
           <li>Cascadas de Triberg (163 m, las más altas de Alemania). 🎟️ entradas sin cola en <strong>shop.triberg.de</strong>.</li>
@@ -560,6 +598,18 @@ footer .wrap{ display:flex; flex-direction:column; gap:6px; }
         <span class="chev">▸</span>
       </summary>
       <div class="day-body">
+        <h4>Horario aproximado</h4>
+        <ul class="timetable">
+          <li><time>09:00</time> Salida de Colmar</li>
+          <li><time>10:30</time> Llegada Mummelsee</li>
+          <li><time>10:30</time> Mummelsee + mirador Hornisgrinde</li>
+          <li><time>12:00</time> Tobogán Mehliskopf</li>
+          <li><time>12:45</time> Comida</li>
+          <li><time>13:45</time> Cascadas de Allerheiligen</li>
+          <li><time>15:15</time> Traslado a Sasbachwalden</li>
+          <li><time>15:45</time> Sasbachwalden</li>
+          <li><time>17:15</time> Vuelta a Colmar</li>
+        </ul>
         <h4>Plan</h4>
         <ul>
           <li>Mummelsee — lago de montaña.</li>
@@ -567,29 +617,46 @@ footer .wrap{ display:flex; flex-direction:column; gap:6px; }
           <li>🛷 Tobogán Mehliskopf, junto al Mummelsee — <em>coaster 2 de 3</em>.</li>
           <li>Sasbachwalden — pueblo vinícola con mucho encanto.</li>
         </ul>
-        <div class="note alt">🃏 <strong>Alternativas que barajamos:</strong> Estrasburgo (catedral, Petite France, Parlamento Europeo) en vez de todo el día de carretera; o <strong>Bad Wildbad</strong> — Baumwipfelpfad (pasarela + mirador + tobogán de 55 m) y el puente colgante Wildline (380 m, 60 m alto). Cualquiera de las dos sustituiría el plan de arriba si al final no apetece tanta conducción.</div>
+        <div class="note">Todo este día se recorre por la Schwarzwaldhochstraße (B500), carretera de montaña con muchas curvas — por eso son ~4h aunque Baden-Baden en sí esté a solo 115 km/1h30. El tiempo se va en las curvas panorámicas entre Mummelsee, Allerheiligen y Sasbachwalden, no en llegar.</div>
+        <div class="note alt">🃏 <strong>Alternativa que barajamos:</strong> <strong>Bad Wildbad</strong> — Baumwipfelpfad (pasarela + mirador + tobogán de 55 m) y el puente colgante Wildline (380 m, 60 m alto), en vez del plan de arriba.</div>
       </div>
     </details>
 
-    <!-- DÍA 5 (antes Norte, ahora Castillo + animales) -->
-    <details class="day" data-type="suave" data-date="2026-08-10">
+    <!-- DÍA 5 — ahora Estrasburgo -->
+    <details class="day" data-type="medio" data-date="2026-08-10">
       <summary>
         <span class="flag">05</span>
         <span class="summary-main">
           <span class="date">Lun 10 ago</span>
-          <h3>Castillo y animales</h3>
-          <span class="teaser">Haut-Kœnigsbourg · Kintzheim · pueblos</span>
+          <h3>Estrasburgo</h3>
+          <span class="teaser">Catedral · Petite France · Parlamento Europeo</span>
         </span>
-        <span class="km-chip">~1h</span>
+        <span class="km-chip">~1h-1h15</span>
         <span class="chev">▸</span>
       </summary>
       <div class="day-body">
+        <h4>Horario aproximado</h4>
+        <ul class="timetable">
+          <li><time>09:00</time> Salida de Colmar</li>
+          <li><time>10:15</time> Llegada P+R Baggersee + tranvía al centro</li>
+          <li><time>10:45</time> Catedral Notre-Dame (reloj astronómico, plataforma)</li>
+          <li><time>12:00</time> Paseo en barco Batorama (1h10)</li>
+          <li><time>13:15</time> Comida en Petite France</li>
+          <li><time>14:15</time> Paseo por Petite France</li>
+          <li><time>15:15</time> Parlamento Europeo (visita gratuita, ~1h)</li>
+          <li><time>16:30</time> Vuelta al P+R</li>
+          <li><time>18:00</time> Llegada a Colmar</li>
+        </ul>
         <h4>Plan</h4>
         <ul>
-          <li>Château du Haut-Kœnigsbourg — abre a las 9:15, conviene llegar pronto en agosto. 🎟️ entradas online.</li>
-          <li>Montagne des Singes (200 monos de Berbería sueltos, se les da de comer en la mano) y/o Volerie des Aigles — a 1,5 km del castillo.</li>
+          <li><strong>Catedral Notre-Dame</strong> — fachada de piedra rosa de los Vosges, reloj astronómico (show a mediodía, entrada aparte) y subida a la plataforma (142 m).</li>
+          <li><strong>Batorama</strong> — paseo en barco de 1h10 desde el embarcadère de la Catedral, pasa por Petite France, esclusas y el Parlamento Europeo desde el agua. Audioguía para niños en varios idiomas.</li>
+          <li><strong>Petite France</strong> — barrio de canales y casas de entramado, Patrimonio UNESCO.</li>
+          <li><strong>Parlamento Europeo</strong> — visitas gratuitas la mayoría de franjas sin reserva (con DNI), abierto lunes a sábado, cerrado domingos. En agosto no hay sesión plenaria.</li>
+          <li>Opcional con niños: <strong>Le Vaisseau</strong>, museo de ciencia interactivo (si el día da tiempo).</li>
         </ul>
-        <div class="note">Día ligero a propósito: queda justo entre el Día Norte y Europa-Park, para recuperar fuerzas entre los dos días más intensos. Los pueblos de la zona (Riquewihr, Kaysersberg...) los dejamos para el Día 7, con más calma.</div>
+        <div class="note">🚗 <strong>Coche y parking:</strong> Estrasburgo tiene zona de bajas emisiones (ZFE) — con Crit'Air 2 o mejor se entra sin problema en 2026. Mejor no meter el coche al centro: aparcar en el <strong>P+R Baggersee</strong> (línea A, ~12 min de tranvía) — ~4,20€/día por coche e incluye el tranvía ida y vuelta para hasta 7 personas. Con 3 coches, parking + tranvía de todo el grupo sale por ~12-13€ en total.</div>
+        <div class="note">Un día completo dedicado solo a Estrasburgo no se queda corto ni se hace pesado — el casco histórico es compacto y se recorre a pie sin agobios. Es justo la cantidad de tiempo recomendada para una primera visita.</div>
       </div>
     </details>
 
@@ -606,6 +673,14 @@ footer .wrap{ display:flex; flex-direction:column; gap:6px; }
         <span class="chev">▸</span>
       </summary>
       <div class="day-body">
+        <h4>Horario aproximado</h4>
+        <ul class="timetable">
+          <li><time>09:00</time> Salida de Colmar</li>
+          <li><time>10:30</time> Llegada, apertura del parque</li>
+          <li><time>10:30</time> Día completo en Europa-Park</li>
+          <li><time>~20:00</time> Show nocturno</li>
+          <li><time>21:00</time> Vuelta a Colmar</li>
+        </ul>
         <h4>Plan</h4>
         <ul>
           <li>Voltron Nevera, 15 zonas temáticas, shows nocturnos.</li>
@@ -628,6 +703,17 @@ footer .wrap{ display:flex; flex-direction:column; gap:6px; }
         <span class="chev">▸</span>
       </summary>
       <div class="day-body">
+        <h4>Horario aproximado</h4>
+        <ul class="timetable">
+          <li><time>09:00</time> Salida de Colmar</li>
+          <li><time>09:15</time> Eguisheim</li>
+          <li><time>10:15</time> Turckheim</li>
+          <li><time>11:15</time> Kaysersberg</li>
+          <li><time>13:00</time> Comida (Kaysersberg o Riquewihr)</li>
+          <li><time>14:15</time> Riquewihr</li>
+          <li><time>15:45</time> Ribeauvillé</li>
+          <li><time>17:15</time> Vuelta a Colmar</li>
+        </ul>
         <h4>Plan</h4>
         <p style="font-size:.85rem;color:var(--slate);margin-top:-4px;">"Suave" aquí significa cerca y sin agobios — todos estos pueblos están a 6-19 km de Colmar. No hace falta verlos todos: elegid 2-3 según el ritmo del grupo ese día.</p>
         <ul>
@@ -655,6 +741,19 @@ footer .wrap{ display:flex; flex-direction:column; gap:6px; }
         <span class="chev">▸</span>
       </summary>
       <div class="day-body">
+        <h4>Horario aproximado</h4>
+        <ul class="timetable">
+          <li><time>09:00</time> Salida de Colmar</li>
+          <li><time>10:00</time> Friburgo (catedral, Bächle) + estadio opcional</li>
+          <li><time>11:00</time> Traslado a Titisee</li>
+          <li><time>11:30</time> Titisee — baño, barcas, noria</li>
+          <li><time>13:30</time> Comida</li>
+          <li><time>14:15</time> Traslado a Todtnau</li>
+          <li><time>14:45</time> Cascadas de Todtnau + paseo</li>
+          <li><time>16:00</time> Hasenhorn Coaster (telesilla + tobogán)</li>
+          <li><time>17:30</time> Vuelta a Colmar</li>
+          <li><time>~19:30</time> Llegada a Colmar</li>
+        </ul>
         <h4>Plan</h4>
         <ul>
           <li>Friburgo — parada breve de camino (catedral, canales Bächle).</li>
@@ -664,35 +763,39 @@ footer .wrap{ display:flex; flex-direction:column; gap:6px; }
           <li>🛷 <strong>Hasenhorn Coaster</strong> — el broche final del día: telesilla arriba, tobogán de 2,9 km (el más largo de Alemania), funciona incluso con lluvia. <em>Coaster 3 de 3, el estrella.</em> Opción tranquila para los peques: bajar andando por el <strong>Zauberweg</strong>, sendero temático infantil desde la misma estación de arriba.</li>
         </ul>
         <div class="note">🩱 Bañador. Día fusionado a propósito: Titisee y Todtnau están a solo 28 km entre sí, así que en un único bucle desde Colmar se hace todo sin duplicar viaje. Aqua Fun Schluchsee se ha sustituido por esto — queda como opción para el Día 9, se valorará más adelante.</div>
+        <div class="note rain">⏱️ Mirando el horario, este día va apretado (~10h30 puerta a puerta) — si algo se retrasa (colas, comida larga, niños cansados), lo que no entre se puede pasar sin problema al Día 9, que está pensado justo como comodín para esto.</div>
         <div class="note alt">🃏 <strong>Alternativas que barajamos para la parte de Todtnau:</strong> Steinwasen Park (Oberried) — toboganes propios + puente de cuerda de 218 m + animales; o Feldberg — el pico más alto de la Selva Negra, con telecabina.</div>
       </div>
     </details>
 
-    <!-- DÍA 9 -->
+    <!-- DÍA 9 — cumpleaños de Inma 🎂 -->
     <details class="day" data-type="suave" data-date="2026-08-14">
       <summary>
         <span class="flag">09</span>
         <span class="summary-main">
           <span class="date">Vie 14 ago</span>
-          <h3>Día libre — elige tu plan</h3>
+          <h3>Día libre — elige tu plan <span class="birthday">🎂 cumple de Inma</span></h3>
           <span class="teaser">Sin plan fijo, cada familia decide</span>
         </span>
         <span class="km-chip">Libre</span>
         <span class="chev">▸</span>
       </summary>
       <div class="day-body">
+        <div class="note" style="background:rgba(156,59,68,.1);border-left-color:var(--vineyard);">🎉 <strong>¡Es el cumpleaños de Inma!</strong> Motivo de sobra para que este día no tenga plan fijo — que sea ella quien elija qué le apetece hacer. El resto de opciones de abajo son ideas por si hace falta rellenar, no obligación de nadie.</div>
         <h4>Opciones sobre la mesa</h4>
         <ul>
+          <li>🏰 <strong>Haut-Kœnigsbourg + animales de Kintzheim</strong> — el plan que hacía antes el Día 5 (castillo, Montagne des Singes / Volerie des Aigles), ahora aquí como opción, no como fijo.</li>
           <li>🌊 <strong>Rulantica</strong> (Rust) — parque acuático cubierto. Buena opción si ese día llueve en cualquier otro momento del viaje y queda pendiente un plan de agua techado.</li>
           <li>🏊 <strong>Aqua Fun Schluchsee</strong> — sigue disponible para quien sí le apetezca, aunque se quitó del plan común del Día 8.</li>
           <li>🏟️ <strong>Estadio SC Freiburg</strong> — tercera fecha posible para la visita, si no cuadró ni el Día 7 ni el Día 8.</li>
           <li>🍇 <strong>Kaiserstuhl</strong> — colinas volcánicas de viñedos entre Colmar y Friburgo, plan corto de enología, muy cerca y sin apenas coche.</li>
           <li>🏛️ <strong>Museo Unterlinden</strong> (Colmar) — el Retablo de Issenheim, para quien prefiera un plan cultural sin coger el coche.</li>
-          <li>🧖 <strong>Spa/termas</strong> — Bad Krozingen o Caracalla Therme (Baden-Baden), plan relax para los adultos.</li>
+          <li>🧖 <strong>Spa/termas</strong> — Bad Krozingen o Caracalla Therme (Baden-Baden), plan relax para los adultos. Con permiso de la cumpleañera, buen candidato para hoy.</li>
           <li>🧸 Con niños y sin ganas de más planes: Musée du Jouet en Colmar, o simplemente piscina/terraza y descansar.</li>
+          <li>📦 <strong>Comodín de última hora:</strong> si el Día 8 se queda corto de tiempo (ver nota de ese día), aquí se recupera lo que falte — cascada de Todtnau o Hasenhorn si no llegasteis.</li>
         </ul>
         <div class="note">Último día completo antes de Annecy (Día 10, ~4h de coche) — pensado para ir ligeros, cada familia elige su ritmo.</div>
-        <div class="note">Cena de despedida en Colmar <span class="todo">✏️ decidir restaurante</span></div>
+        <div class="note">🎂 Tarta y cena de cumpleaños/despedida en Colmar <span class="todo">✏️ decidir restaurante</span></div>
       </div>
     </details>
 
@@ -709,6 +812,15 @@ footer .wrap{ display:flex; flex-direction:column; gap:6px; }
         <span class="chev">▸</span>
       </summary>
       <div class="day-body">
+        <h4>Horario aproximado</h4>
+        <ul class="timetable">
+          <li><time>09:00</time> Últimos preparativos, maletas al coche</li>
+          <li><time>09:45</time> Checkout, llaves en la caja</li>
+          <li><time>~14:00</time> Llegada a Annecy (~4h)</li>
+          <li><time>14:30</time> Comida</li>
+          <li><time>16:00</time> Palais de l'Île, casco medieval, lago</li>
+          <li><time>19:30</time> Check-in alojamiento Annecy</li>
+        </ul>
         <h4>Plan</h4>
         <ul>
           <li>Salida del alojamiento antes de las 10:00 (checkout).</li>
@@ -732,6 +844,12 @@ footer .wrap{ display:flex; flex-direction:column; gap:6px; }
         <span class="chev">▸</span>
       </summary>
       <div class="day-body">
+        <h4>Horario aproximado</h4>
+        <ul class="timetable">
+          <li><time>08:00</time> Salida de Annecy</li>
+          <li><time>~12:30</time> Parada larga — Montpellier o Narbona (comida)</li>
+          <li><time>~14:00</time> Llegada a Cerdanyola del Vallès</li>
+        </ul>
         <h4>Plan</h4>
         <ul>
           <li>Annecy → Cerdanyola del Vallès (~5h30).</li>
@@ -748,8 +866,7 @@ footer .wrap{ display:flex; flex-direction:column; gap:6px; }
         <p>Así estaba el viaje antes de meter los toboganes alpinos, los animales de Kintzheim, el día de agua y el Día Norte. Se queda aquí por si en algún momento se prefiere volver a algo de esto — nada de esto está activo ahora.</p>
         <ul>
           <li><b>Día 3 —</b> Pueblos alsacianos: Eguisheim → Kaysersberg → Riquewihr</li>
-          <li><b>Día 4 —</b> Castillo + Ribeauvillé (sin animales de Kintzheim)</li>
-          <li><b>Día 5 —</b> Estrasburgo (día completo)</li>
+          <li><b>Día 4 —</b> Castillo + Ribeauvillé (sin animales de Kintzheim) — <em>nota: el castillo ahora vive como opción del Día 9, y Estrasburgo volvió a ser plan fijo del Día 5</em></li>
           <li><b>Día 7 —</b> Friburgo + Titisee (sin Aqua Fun ni parada de estadio)</li>
           <li><b>Día 8 —</b> Triberg + Gengenbach</li>
           <li><b>Día 9 —</b> Día libre: cada familia elegía entre Rulantica, Baden-Baden, un estadio o Turckheim</li>
@@ -780,7 +897,8 @@ footer .wrap{ display:flex; flex-direction:column; gap:6px; }
       <a class="leg" href="https://www.google.com/maps/dir/Cerdanyola+del+Valles,+Spain/Colmar,+France" target="_blank" rel="noopener">Cerdanyola → Colmar <span>Día 1</span></a>
       <a class="leg" href="https://www.google.com/maps/dir/Colmar,+France/Triberg+im+Schwarzwald,+Germany" target="_blank" rel="noopener">Colmar → Triberg <span>Día 3</span></a>
       <a class="leg" href="https://www.google.com/maps/dir/Colmar,+France/Mummelsee,+Seebach,+Germany" target="_blank" rel="noopener">Colmar → Mummelsee <span>Día 4</span></a>
-      <a class="leg" href="https://www.google.com/maps/dir/Colmar,+France/Chateau+du+Haut-Koenigsbourg,+France" target="_blank" rel="noopener">Colmar → Haut-Kœnigsbourg <span>Día 5</span></a>
+      <a class="leg" href="https://www.google.com/maps/dir/Colmar,+France/Strasbourg,+France" target="_blank" rel="noopener">Colmar → Estrasburgo <span>Día 5</span></a>
+      <a class="leg" href="https://www.google.com/maps/dir/Colmar,+France/Chateau+du+Haut-Koenigsbourg,+France" target="_blank" rel="noopener">Colmar → Haut-Kœnigsbourg <span>Día 9 (opcional)</span></a>
       <a class="leg" href="https://www.google.com/maps/dir/Colmar,+France/Europa-Park,+Rust,+Germany" target="_blank" rel="noopener">Colmar → Europa-Park <span>Día 6</span></a>
       <a class="leg" href="https://www.google.com/maps/dir/Colmar,+France/Titisee-Neustadt,+Germany" target="_blank" rel="noopener">Colmar → Titisee <span>Día 8</span></a>
       <a class="leg" href="https://www.google.com/maps/dir/Titisee-Neustadt,+Germany/Todtnau,+Germany" target="_blank" rel="noopener">Titisee → Todtnau <span>Día 8</span></a>
@@ -868,9 +986,9 @@ footer .wrap{ display:flex; flex-direction:column; gap:6px; }
         <li><a href="https://shop.triberg.de/" target="_blank" rel="noopener"><span class="tk-name">🎟️ Cascadas de Triberg <span style="color:var(--slate);font-size:.78rem">· Día 3</span></span><span class="tk-go">shop.triberg.de →</span></a></li>
         <li><a href="https://www.vogtsbauernhof.de/" target="_blank" rel="noopener"><span class="tk-name">🎟️ Museo Vogtsbauernhof (Gutach) <span style="color:var(--slate);font-size:.78rem">· Día 3</span></span><span class="tk-go">vogtsbauernhof.de →</span></a></li>
         <li><a href="https://mehliskopf.de/tickets-preise" target="_blank" rel="noopener"><span class="tk-name">🎟️ Tobogán Mehliskopf <span style="color:var(--slate);font-size:.78rem">· Día 4</span></span><span class="tk-go">mehliskopf.de →</span></a></li>
-        <li><a href="https://tickets.haut-koenigsbourg.fr/" target="_blank" rel="noopener"><span class="tk-name">🎟️ Château Haut-Kœnigsbourg <span style="color:var(--slate);font-size:.78rem">· Día 5</span></span><span class="tk-go">tickets.haut-koenigsbourg.fr →</span></a></li>
-        <li><a href="https://www.montagnedessinges.com/" target="_blank" rel="noopener"><span class="tk-name">🎟️ Montagne des Singes <span style="color:var(--slate);font-size:.78rem">· Día 5</span></span><span class="tk-go">montagnedessinges.com →</span></a></li>
-        <li><a href="https://www.voleriedesaigles.com/" target="_blank" rel="noopener"><span class="tk-name">🎟️ Volerie des Aigles <span style="color:var(--slate);font-size:.78rem">· Día 5</span></span><span class="tk-go">voleriedesaigles.com →</span></a></li>
+        <li><a href="https://tickets.haut-koenigsbourg.fr/" target="_blank" rel="noopener"><span class="tk-name">🎟️ Château Haut-Kœnigsbourg <span style="color:var(--slate);font-size:.78rem">· Día 9 (opcional)</span></span><span class="tk-go">tickets.haut-koenigsbourg.fr →</span></a></li>
+        <li><a href="https://www.montagnedessinges.com/" target="_blank" rel="noopener"><span class="tk-name">🎟️ Montagne des Singes <span style="color:var(--slate);font-size:.78rem">· Día 9 (opcional)</span></span><span class="tk-go">montagnedessinges.com →</span></a></li>
+        <li><a href="https://www.voleriedesaigles.com/" target="_blank" rel="noopener"><span class="tk-name">🎟️ Volerie des Aigles <span style="color:var(--slate);font-size:.78rem">· Día 9 (opcional)</span></span><span class="tk-go">voleriedesaigles.com →</span></a></li>
         <li><a href="https://www.europapark.de/en/theme-park/tickets-offers" target="_blank" rel="noopener"><span class="tk-name">🎟️ Europa-Park <span style="color:var(--slate);font-size:.78rem">· Día 6</span></span><span class="tk-go">europapark.de →</span></a></li>
         <li><a href="https://www.gemeinde-schluchsee.de/freizeit/freibad-aqua-fun" target="_blank" rel="noopener"><span class="tk-name">🎟️ Aqua Fun Schluchsee <span style="color:var(--slate);font-size:.78rem">· Día 9 (opcional, sin reserva)</span></span><span class="tk-go">gemeinde-schluchsee.de →</span></a></li>
         <li><a href="https://www.hasenhorn-rodelbahn.de/" target="_blank" rel="noopener"><span class="tk-name">🎟️ Hasenhorn Coaster <span style="color:var(--slate);font-size:.78rem">· Día 8</span></span><span class="tk-go">hasenhorn-rodelbahn.de →</span></a></li>
