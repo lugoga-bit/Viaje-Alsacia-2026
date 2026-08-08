@@ -6,6 +6,7 @@
 <title>Alsacia &amp; Selva Negra 2026</title>
 <meta name="description" content="Itinerario del viaje familiar a Alsacia y la Selva Negra, 6-16 agosto 2026.">
 <meta name="robots" content="noindex, nofollow">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css" />
 <style>
 /* =========================================================
    TOKENS
@@ -372,6 +373,9 @@ footer{
 }
 footer a{ color:var(--waymark); }
 footer .wrap{ display:flex; flex-direction:column; gap:6px; }
+.daymap{ height:280px; border-radius:var(--radius); overflow:hidden; border:1px solid rgba(76,98,117,.3); margin:10px 0; background:#e5e9ec; }
+.daymap .leaflet-popup-content{ font-family:var(--font-body); font-size:.82rem; }
+.daymap .leaflet-popup-content b{ font-family:var(--font-display); }
 </style>
 </head>
 <body>
@@ -626,6 +630,7 @@ footer .wrap{ display:flex; flex-direction:column; gap:6px; }
           <li>🛷 Tobogán Mehliskopf, junto al Mummelsee — <em>coaster 2 de 3</em>.</li>
           <li>Sasbachwalden — pueblo vinícola con mucho encanto.</li>
         </ul>
+        <div id="map-dia4" class="daymap" data-day="4"></div>
         <div class="note">Todo este día se recorre por la Schwarzwaldhochstraße (B500), carretera de montaña con muchas curvas — por eso son ~4h aunque Baden-Baden en sí esté a solo 115 km/1h30. El tiempo se va en las curvas panorámicas entre Mummelsee, Allerheiligen y Sasbachwalden, no en llegar.</div>
         <div class="note alt">🃏 <strong>Alternativa que barajamos:</strong> <strong>Bad Wildbad</strong> — Baumwipfelpfad (pasarela + mirador + tobogán de 55 m) y el puente colgante Wildline (380 m, 60 m alto), en vez del plan de arriba.</div>
       </div>
@@ -732,6 +737,7 @@ footer .wrap{ display:flex; flex-direction:column; gap:6px; }
           <li><strong>Riquewihr</strong> (13 km) — la Torre Dolder (1291), foto icónica del pueblo; calle principal con artesanía local. Riesling Schoenenbourg, de los mejores vinos de Alsacia.</li>
           <li><strong>Ribeauvillé</strong> (19 km) — Torre de los Boschers visible desde toda la ciudad; 3 castillos en ruinas a 30 min de senderismo, con vistas a los viñedos.</li>
         </ul>
+        <div id="map-dia7" class="daymap" data-day="7"></div>
         <div class="note">Buen día para cata de vino de los adultos y para ir con calma después de Europa-Park — el coche apenas se usa.</div>
         <div class="note alt">⚽ <strong>Para la familia futbolera:</strong> este día también es una opción para ir a Friburgo a visitar con calma el estadio del SC Freiburg (tour, tienda, museo) mientras el resto se queda con los pueblos — sin prisa, sin combinarlo con más planes. La otra opción es la parada rápida de camino el Día 8 (ver ese día). Elegid la que mejor encaje según cómo vaya el grupo esos días.</div>
       </div>
@@ -756,23 +762,24 @@ footer .wrap{ display:flex; flex-direction:column; gap:6px; }
           <li><time>10:00</time> Friburgo (catedral, Bächle) + estadio opcional</li>
           <li><time>11:00</time> 🚗 Traslado a Titisee</li>
           <li><time>11:30</time> Titisee — baño, barcas, noria</li>
-          <li><time>13:30</time> Comida</li>
-          <li><time>14:15</time> 🚗 Traslado a Todtnau</li>
-          <li><time>14:45</time> Cascadas de Todtnau + paseo</li>
-          <li><time>16:00</time> Hasenhorn Coaster (telesilla + tobogán)</li>
-          <li><time>17:30</time> 🚗 Vuelta a Colmar</li>
-          <li><time>~19:30</time> Llegada a Colmar</li>
+          <li><time>12:30</time> Comida</li>
+          <li><time>13:15</time> 🚗 Traslado a Todtnau</li>
+          <li><time>13:45</time> Hasenhorn Coaster (telesilla + tobogán) — antes de que cierre a las 16:30</li>
+          <li><time>15:15</time> Cascadas de Todtnau + paseo</li>
+          <li><time>16:30</time> 🚗 Vuelta a Colmar</li>
+          <li><time>~18:30</time> Llegada a Colmar</li>
         </ul>
         <h4>Plan</h4>
         <ul>
           <li>Friburgo — parada breve de camino (catedral, canales Bächle).</li>
           <li>🏟️ Parada opcional en el estadio del SC Freiburg para quien quiera — está de camino, no añade desvío. <em>(Alternativa: hacerlo con más calma el Día 7, ver ese día.)</em></li>
           <li>Titisee — baño libre en el lago, barcas (eléctrica 22€/30min · pedales 8€/30min), noria (6€ adultos / 4€ niños).</li>
-          <li><strong>Cascadas de Todtnau</strong> (~28 km / 25-30 min desde Titisee) — 97 m en varios escalones. Ruta fácil de ~1,5 km desde el parking, pasarelas de madera, apta para niños.</li>
-          <li>🛷 <strong>Hasenhorn Coaster</strong> — el broche final del día: telesilla arriba, tobogán de 2,9 km (el más largo de Alemania), funciona incluso con lluvia. <em>Coaster 3 de 3, el estrella.</em> Opción tranquila para los peques: bajar andando por el <strong>Zauberweg</strong>, sendero temático infantil desde la misma estación de arriba.</li>
+          <li>🛷 <strong>Hasenhorn Coaster</strong> — el broche del día, hecho primero por el horario: telesilla arriba, tobogán de 2,9 km (el más largo de Alemania), funciona incluso con lluvia. <em>Coaster 3 de 3, el estrella.</em> Abierto 9:00-16:30. Opción tranquila para los peques: bajar andando por el <strong>Zauberweg</strong>, sendero temático infantil desde la misma estación de arriba.</li>
+          <li><strong>Cascadas de Todtnau</strong> (misma zona que Hasenhorn, sin coche) — 97 m en varios escalones. Ruta fácil de ~1,5 km desde el parking, pasarelas de madera, apta para niños. <strong>2,50€ solo cascada / 12€ cascada + puente colgante</strong> (el ticket incluye cruzar el puente una vez por cada lado).</li>
         </ul>
+        <div id="map-dia8" class="daymap" data-day="8"></div>
         <div class="note">🩱 Bañador. Día fusionado a propósito: Titisee y Todtnau están a solo 28 km entre sí, así que en un único bucle desde Colmar se hace todo sin duplicar viaje. Aqua Fun Schluchsee se ha sustituido por esto — queda como opción para el Día 9, se valorará más adelante.</div>
-        <div class="note rain">⏱️ Mirando el horario, este día va apretado (~10h30 puerta a puerta) — si algo se retrasa (colas, comida larga, niños cansados), lo que no entre se puede pasar sin problema al Día 9, que está pensado justo como comodín para esto.</div>
+        <div class="note rain">⏱️ Mirando el horario, este día va apretado (~9h30 puerta a puerta) — si algo se retrasa (colas, comida larga, niños cansados), lo que no entre se puede pasar sin problema al Día 9, que está pensado justo como comodín para esto.</div>
         <div class="note alt">🃏 <strong>Alternativas que barajamos para la parte de Todtnau:</strong> Steinwasen Park (Oberried) — toboganes propios + puente de cuerda de 218 m + animales; o Feldberg — el pico más alto de la Selva Negra, con telecabina.</div>
       </div>
     </details>
@@ -3333,6 +3340,7 @@ var qrcode = function() {
     return qrcode;
 }));
 </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
 <script>
 (function(){
   "use strict";
@@ -3428,6 +3436,71 @@ var qrcode = function() {
       }, {rootMargin: '0px 0px -60px 0px', threshold: 0.1});
       dayCards.forEach(function(d){ revealObs.observe(d); });
     }
+  }catch(e){}
+
+  /* ---------- Mapas de días concretos (Leaflet + OpenStreetMap) ---------- */
+  try{
+    var dayMapsData = {
+      "map-dia4": {
+        center: [48.594, 8.190], zoom: 11,
+        points: [
+          [48.597780, 8.201200, "Mummelsee", "Lago de montaña. Parking gratis, se llena rápido en fin de semana."],
+          [48.529385, 8.188276, "Cascadas de Allerheiligen", "Ruta completa ~1h30. Parking gratis junto a la entrada."],
+          [48.656280, 8.241814, "Tobogán Mehliskopf", "⚠️ Reseñas avisan de cobros de hasta 54€ por parking mal señalizado (\"Mobility Hub\"). Revisad bien las señales."],
+          [48.617709, 8.127878, "Sasbachwalden", "Pueblo vinícola, última parada antes de volver."]
+        ]
+      },
+      "map-dia7": {
+        center: [48.128, 7.291], zoom: 11,
+        points: [
+          [48.043785, 7.306893, "Eguisheim", "7 km de Colmar — el más cercano y fácil."],
+          [48.086790, 7.277942, "Turckheim", "6 km de Colmar."],
+          [48.146082, 7.253670, "Kaysersberg", "11 km de Colmar — vistas desde el castillo en ruinas."],
+          [48.166158, 7.299822, "Riquewihr", "13 km — Torre Dolder (1291), foto icónica."],
+          [48.194668, 7.319091, "Ribeauvillé", "19 km — Torre de los Boschers."]
+        ]
+      },
+      "map-dia8": {
+        center: [47.89, 8.00], zoom: 9,
+        points: [
+          [47.995582, 7.852790, "Freiburgo (catedral)", "Parada breve de camino."],
+          [47.894603, 8.144790, "Titisee", "Baño libre, barcas, noria."],
+          [47.828843, 7.949029, "Hasenhorn Coaster", "Abierto 9:00-16:30 — hacedlo antes de la cascada."],
+          [47.844016, 7.939075, "Cascadas de Todtnau", "2,50€ solo cascada / 12€ con puente colgante."]
+        ]
+      }
+    };
+
+    function initDayMap(id){
+      var cfg = dayMapsData[id];
+      var el = document.getElementById(id);
+      if(!cfg || !el || el.dataset.loaded) return;
+      el.dataset.loaded = "1";
+      var map = L.map(id).setView(cfg.center, cfg.zoom);
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 18,
+        attribution: '&copy; OpenStreetMap'
+      }).addTo(map);
+      var bounds = [];
+      cfg.points.forEach(function(p, i){
+        var marker = L.marker([p[0], p[1]]).addTo(map);
+        marker.bindPopup('<b>' + (i+1) + '. ' + p[2] + '</b><br>' + p[3]);
+        bounds.push([p[0], p[1]]);
+      });
+      if(bounds.length > 1) map.fitBounds(bounds, {padding: [24, 24]});
+      setTimeout(function(){ map.invalidateSize(); }, 150);
+    }
+
+    Object.keys(dayMapsData).forEach(function(id){
+      var el = document.getElementById(id);
+      if(!el) return;
+      var details = el.closest('details');
+      if(!details) return;
+      if(details.open) initDayMap(id);
+      details.addEventListener('toggle', function(){
+        if(details.open) initDayMap(id);
+      });
+    });
   }catch(e){}
 
   /* ---------- Nav activa según la sección visible (mejora progresiva) ---------- */
