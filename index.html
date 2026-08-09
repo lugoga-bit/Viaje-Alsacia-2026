@@ -614,24 +614,27 @@ footer .wrap{ display:flex; flex-direction:column; gap:6px; }
         <h4>Horario aproximado</h4>
         <ul class="timetable">
           <li><time>09:00</time> 🚗 Salida de Colmar</li>
-          <li><time>10:30</time> Llegada Mummelsee</li>
-          <li><time>10:30</time> Mummelsee + mirador Hornisgrinde</li>
-          <li><time>12:00</time> Tobogán Mehliskopf</li>
-          <li><time>12:45</time> Comida</li>
-          <li><time>13:45</time> Cascadas de Allerheiligen</li>
-          <li><time>15:15</time> 🚗 Traslado a Sasbachwalden</li>
-          <li><time>15:45</time> Sasbachwalden</li>
-          <li><time>17:15</time> 🚗 Vuelta a Colmar</li>
+          <li><time>10:15</time> Llegada a Allerheiligen</li>
+          <li><time>10:15</time> Cascadas de Allerheiligen</li>
+          <li><time>11:45</time> 🚗 Traslado a Mummelsee</li>
+          <li><time>12:00</time> Mummelsee + mirador Hornisgrinde</li>
+          <li><time>12:30</time> Comida</li>
+          <li><time>13:15</time> 🚗 Traslado a Mehliskopf</li>
+          <li><time>13:30</time> Tobogán Mehliskopf</li>
+          <li><time>14:30</time> 🚗 Traslado a Sasbachwalden</li>
+          <li><time>15:00</time> Sasbachwalden</li>
+          <li><time>16:30</time> 🚗 Vuelta a Colmar</li>
+          <li><time>~17:45</time> Llegada a Colmar</li>
         </ul>
         <h4>Plan</h4>
         <ul>
-          <li>Mummelsee — lago de montaña.</li>
-          <li>Cascadas de Allerheiligen (Oppenau).</li>
+          <li>Cascadas de Allerheiligen (Oppenau) — la primera parada, de camino desde Colmar.</li>
+          <li>Mummelsee — lago de montaña, a solo 7,7 km de Allerheiligen.</li>
           <li>🛷 Tobogán Mehliskopf, junto al Mummelsee — <em>coaster 2 de 3</em>.</li>
-          <li>Sasbachwalden — pueblo vinícola con mucho encanto.</li>
+          <li>Sasbachwalden — pueblo vinícola con mucho encanto, cerca de Mummelsee, de vuelta hacia Colmar.</li>
         </ul>
         <div id="map-dia4" class="daymap" data-day="4"></div>
-        <div class="note">Todo este día se recorre por la Schwarzwaldhochstraße (B500), carretera de montaña con muchas curvas — por eso son ~4h aunque Baden-Baden en sí esté a solo 115 km/1h30. El tiempo se va en las curvas panorámicas entre Mummelsee, Allerheiligen y Sasbachwalden, no en llegar.</div>
+        <div class="note">Todo este día se recorre por la Schwarzwaldhochstraße (B500), carretera de montaña con muchas curvas — por eso son ~4h aunque Baden-Baden en sí esté a solo 115 km/1h30. El tiempo se va en las curvas panorámicas entre Allerheiligen, Mummelsee y Sasbachwalden, no en llegar. Este orden evita subir y bajar dos veces: Allerheiligen está de camino, y Sasbachwalden queda más cerca de Mummelsee que de Allerheiligen, así que se deja para el final.</div>
         <div class="note alt">🃏 <strong>Alternativa que barajamos:</strong> <strong>Bad Wildbad</strong> — Baumwipfelpfad (pasarela + mirador + tobogán de 55 m) y el puente colgante Wildline (380 m, 60 m alto), en vez del plan de arriba.</div>
       </div>
     </details>
@@ -3444,10 +3447,10 @@ var qrcode = function() {
       "map-dia4": {
         center: [48.594, 8.190], zoom: 11,
         points: [
-          [48.597780, 8.201200, "Mummelsee", "Lago de montaña. Parking gratis, se llena rápido en fin de semana."],
-          [48.529385, 8.188276, "Cascadas de Allerheiligen", "Ruta completa ~1h30. Parking gratis junto a la entrada."],
+          [48.529385, 8.188276, "Cascadas de Allerheiligen", "Primera parada, de camino desde Colmar. Ruta completa ~1h30. Parking gratis junto a la entrada."],
+          [48.597780, 8.201200, "Mummelsee", "Lago de montaña, a 7,7 km de Allerheiligen. Parking gratis, se llena rápido en fin de semana."],
           [48.656280, 8.241814, "Tobogán Mehliskopf", "⚠️ Reseñas avisan de cobros de hasta 54€ por parking mal señalizado (\"Mobility Hub\"). Revisad bien las señales."],
-          [48.617709, 8.127878, "Sasbachwalden", "Pueblo vinícola, última parada antes de volver."]
+          [48.617709, 8.127878, "Sasbachwalden", "Pueblo vinícola, más cerca de Mummelsee que de Allerheiligen — por eso va al final."]
         ]
       },
       "map-dia7": {
