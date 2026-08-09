@@ -631,7 +631,7 @@ footer .wrap{ display:flex; flex-direction:column; gap:6px; }
           <li>Cascadas de Allerheiligen (Oppenau) — la primera parada, de camino desde Colmar. 💡 Tiene pozas naturales aptas para bañarse — con niños, dejad más margen de tiempo del previsto, cuesta sacarlos del agua.</li>
           <li>Mummelsee — lago de montaña, a solo 7,7 km de Allerheiligen.</li>
           <li>🛷 Tobogán Mehliskopf, junto al Mummelsee — <em>coaster 2 de 3</em>.</li>
-          <li>Sasbachwalden — pueblo vinícola con mucho encanto, cerca de Mummelsee, de vuelta hacia Colmar.</li>
+          <li>Sasbachwalden — pueblo vinícola con mucho encanto, cerca de Mummelsee, de vuelta hacia Colmar. 🚶 <a href="https://www.sasbachwalden.de/Wandern-Aktivitaeten/Wandertouren/Dorfrundweg-Sasbachwalden2" target="_blank" rel="noopener">Dorfrundweg</a> — ruta sugerida por el pueblo, corta y sin dificultad.</li>
         </ul>
         <div id="map-dia4" class="daymap" data-day="4"></div>
         <div class="note">Todo este día se recorre por la Schwarzwaldhochstraße (B500), carretera de montaña con muchas curvas — por eso son ~4h aunque Baden-Baden en sí esté a solo 115 km/1h30. El tiempo se va en las curvas panorámicas entre Allerheiligen, Mummelsee y Sasbachwalden, no en llegar. Este orden evita subir y bajar dos veces: Allerheiligen está de camino, y Sasbachwalden queda más cerca de Mummelsee que de Allerheiligen, así que se deja para el final.</div>
@@ -3492,6 +3492,22 @@ var qrcode = function() {
       });
       if(bounds.length > 1) map.fitBounds(bounds, {padding: [24, 24]});
       setTimeout(function(){ map.invalidateSize(); }, 150);
+
+      // Traza la ruta real por carretera entre las paradas, en orden.
+      var straightLine = L.polyline(bounds, {color: '#c9302c', weight: 3, opacity: .6, dashArray: '6 8'}).addTo(map);
+      if(cfg.points.length > 1){
+        var coordStr = cfg.points.map(function(p){ return p[1] + ',' + p[0]; }).join(';');
+        fetch('https://router.project-osrm.org/route/v1/driving/' + coordStr + '?overview=full&geometries=geojson')
+          .then(function(r){ return r.json(); })
+          .then(function(data){
+            if(data && data.routes && data.routes[0]){
+              var coords = data.routes[0].geometry.coordinates.map(function(c){ return [c[1], c[0]]; });
+              map.removeLayer(straightLine);
+              L.polyline(coords, {color: '#c9302c', weight: 4, opacity: .75}).addTo(map);
+            }
+          })
+          .catch(function(){ /* se queda la línea recta de referencia */ });
+      }
     }
 
     Object.keys(dayMapsData).forEach(function(id){
