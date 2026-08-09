@@ -672,6 +672,9 @@ footer .wrap{ display:flex; flex-direction:column; gap:6px; }
           <li><strong>Parlamento Europeo</strong> — visitas gratuitas la mayoría de franjas sin reserva (con DNI), abierto lunes a sábado, cerrado domingos. En agosto no hay sesión plenaria.</li>
           <li>Opcional con niños: <strong>Le Vaisseau</strong>, museo de ciencia interactivo (si el día da tiempo).</li>
         </ul>
+        <div id="map-dia5" class="daymap" data-day="5"></div>
+        <div class="note">🚣 <strong>Sobre el barco sin reserva:</strong> con 11 personas no hace falta nada de "grupo" (eso solo aplica a partir de 20) — se compran los billetes normales en la tienda de Batorama (frente a la Catedral) o en las máquinas automáticas, el mismo día, según haya hueco. En agosto puede llenarse, así que mejor comprar a primera hora en cuanto lleguéis, no dejarlo para media mañana.</div>
+        <div class="note alt">🃏 <strong>Si no hay sitio en el barco:</strong> Palais Rohan (museos, frente a la Catedral, entrada de pago) · Ponts Couverts + Barrage Vauban (gratis, terraza panorámica, aunque parte está en obras estos días) · Place Kléber (plaza central, cafés). Cualquiera de estos rellena bien el hueco del Batorama.</div>
         <div class="note">🚗 <strong>Coche y parking:</strong> Estrasburgo tiene zona de bajas emisiones (ZFE) — con Crit'Air 2 o mejor se entra sin problema en 2026. Mejor no meter el coche al centro: aparcar en el <strong>P+R Baggersee</strong> (línea A, ~12 min de tranvía) — ~4,20€/día por coche e incluye el tranvía ida y vuelta para hasta 7 personas. Con 3 coches, parking + tranvía de todo el grupo sale por ~12-13€ en total.</div>
         <div class="note">Un día completo dedicado solo a Estrasburgo no se queda corto ni se hace pesado — el casco histórico es compacto y se recorre a pie sin agobios. Es justo la cantidad de tiempo recomendada para una primera visita.</div>
       </div>
@@ -3453,6 +3456,17 @@ var qrcode = function() {
           [48.617709, 8.127878, "Sasbachwalden", "Pueblo vinícola, más cerca de Mummelsee que de Allerheiligen — por eso va al final."]
         ]
       },
+      "map-dia5": {
+        center: [48.583, 7.751], zoom: 14, profile: 'foot',
+        points: [
+          [48.581880, 7.751035, "Catedral Notre-Dame", "Reloj astronómico, subida a la plataforma (142 m)."],
+          [48.581114, 7.741511, "Petite France", "Barrio de canales, Patrimonio UNESCO."],
+          [48.580176, 7.739269, "Ponts Couverts + Barrage Vauban", "Terraza panorámica gratis. Parte en obras estos días."],
+          [48.580840, 7.752534, "Palais Rohan", "Alternativa si no hay sitio en el barco — museos, entrada de pago."],
+          [48.583541, 7.745754, "Place Kléber", "Plaza central, cafés."],
+          [48.597682, 7.768729, "Parlamento Europeo", "Visita gratuita, sin sesión plenaria en agosto."]
+        ]
+      },
       "map-dia7": {
         center: [48.128, 7.291], zoom: 11,
         points: [
@@ -3493,11 +3507,12 @@ var qrcode = function() {
       if(bounds.length > 1) map.fitBounds(bounds, {padding: [24, 24]});
       setTimeout(function(){ map.invalidateSize(); }, 150);
 
-      // Traza la ruta real por carretera entre las paradas, en orden.
+      // Traza la ruta real (coche o a pie, según el día) entre las paradas, en orden.
       var straightLine = L.polyline(bounds, {color: '#c9302c', weight: 3, opacity: .6, dashArray: '6 8'}).addTo(map);
       if(cfg.points.length > 1){
+        var profile = cfg.profile || 'driving';
         var coordStr = cfg.points.map(function(p){ return p[1] + ',' + p[0]; }).join(';');
-        fetch('https://router.project-osrm.org/route/v1/driving/' + coordStr + '?overview=full&geometries=geojson')
+        fetch('https://router.project-osrm.org/route/v1/' + profile + '/' + coordStr + '?overview=full&geometries=geojson')
           .then(function(r){ return r.json(); })
           .then(function(data){
             if(data && data.routes && data.routes[0]){
