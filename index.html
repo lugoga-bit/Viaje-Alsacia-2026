@@ -3501,7 +3501,11 @@ var qrcode = function() {
       var bounds = [];
       cfg.points.forEach(function(p, i){
         var marker = L.marker([p[0], p[1]]).addTo(map);
-        marker.bindPopup('<b>' + (i+1) + '. ' + p[2] + '</b><br>' + p[3]);
+        var travelmode = (cfg.profile === 'foot') ? 'walking' : 'driving';
+        var mapsLink = '<a href="https://www.google.com/maps/dir/?api=1&destination=' + p[0] + ',' + p[1] + '&travelmode=' + travelmode + '" target="_blank" rel="noopener">🗺️ Maps</a>';
+        var wazeLink = '<a href="https://waze.com/ul?ll=' + p[0] + ',' + p[1] + '&navigate=yes" target="_blank" rel="noopener">🚗 Waze</a>';
+        var navLinks = '<div style="margin-top:6px;">' + (cfg.profile === 'foot' ? mapsLink : (wazeLink + ' · ' + mapsLink)) + '</div>';
+        marker.bindPopup('<b>' + (i+1) + '. ' + p[2] + '</b><br>' + p[3] + navLinks);
         bounds.push([p[0], p[1]]);
       });
       if(bounds.length > 1) map.fitBounds(bounds, {padding: [24, 24]});
